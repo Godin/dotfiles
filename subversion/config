@@ -1,0 +1,17 @@
+[miscellany]
+global-ignores = target .settings .project .classpath .git .* bin
+enable-auto-props = yes
+
+[auto-props]
+*.bat = svn:eol-style=native
+*.erb = svn:eol-style=native
+*.groovy = svn:eol-style=native
+*.html = svn:mime-type=text/html;svn:eol-style=native
+*.java = svn:eol-style=native
+*.properties = svn:eol-style=native
+*.rb = svn:eol-style=native
+*.sh = svn:eol-style=native
+*.txt = svn:eol-style=native
+#*.xml = svn:eol-style=native
+*.cpp = svn:eol-style=native
+*.c = svn:eol-style=native
