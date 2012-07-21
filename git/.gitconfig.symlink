@@ -1,0 +1,19 @@
+# Set your user tokens as enivornment variables
+[core]
+  excludesfile = ~/.gitignore
+  # This makes vim jump to the first line when you enter edit mode for the commit
+  editor = vim -c ':normal gg'
+[commit]
+  template = ~/.git-commit-template
+[push]
+  # 'git push' will push the current branch to its tracking branch
+  # the usual default is to push all branches
+  default = tracking
+[color]
+  ui = true
+[alias]
+  st = status
+  ci = commit -v
+  co = checkout
+  br = branch
+  dc = diff --cached
