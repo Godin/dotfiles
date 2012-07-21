@@ -1,3 +1,6 @@
+[helpers]
+editor-cmd = vim
+
 [miscellany]
 global-ignores = target .settings .project .classpath .git .* bin
 enable-auto-props = yes
