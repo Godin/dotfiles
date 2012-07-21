@@ -14,7 +14,7 @@ function svn() {
       ${SVN} diff "${@:2}" | colordiff | less -R
     elif [[ $1 == st ]] ; then
       # colorize
-      ${SVN} st --ignore-externals "${@:2}" | grep -v '^X' | sed -e 's/^\?.*$/\0/' -e 's/^!.*$/\0/' -e 's/^A.*$/\0/' -e 's/^M.*$/\0/' -e 's/^D.*$/\0/'
+      ${SVN} st --ignore-externals "${@:2}" | grep -v '^X' | sed -e 's/^\?.*$/\0/' -e 's/^!.*$/\x1b[31m\0\x1b[0m/' -e 's/^A.*$/\x1b[32m\0\x1b[0m/' -e 's/^M.*$/\x1b[33m\0\x1b[0m/' -e 's/^D.*$/\x1b[31m\0\x1b[0m/'
 
     elif [[ $1 == log ]] ; then
       ${SVN} log "${@:2}" | less
