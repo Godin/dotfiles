@@ -1,19 +1,45 @@
 # Set your user tokens as enivornment variables
+
 [core]
   excludesfile = ~/.gitignore
   # This makes vim jump to the first line when you enter edit mode for the commit
   editor = vim -c ':normal gg'
+
 [commit]
   template = ~/.git-commit-template
+
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
   default = tracking
+
 [color]
   ui = true
+
+[diff]
+  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+  # instead of a/b/c/d as prefixes for patches
+  mnemonicprefix = true
+  # Detect renames and copies
+  renames = copies
+
 [alias]
   st = status
   ci = commit -v
   co = checkout
   br = branch
+
+  ls-ignored = ls-files --exclude-standard --ignored --others
+
+  # diff
   dc = diff --cached
+  wd = diff --word-diff=color
+  wdc = diff --word-diff=color --staged
+
+  # log
+  l = log --oneline
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  changes = log --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative --name-status
+
+  # reset
+  unstage = reset HEAD
