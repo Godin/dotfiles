@@ -22,7 +22,7 @@ fi
 export DOTFILES=$HOME/projects/dotfiles
 PATH="$DOTFILES/bin:$PATH"
 
-for config_file in "$DOTFILES/**/*.bash"
+for config_file in $DOTFILES/**/*.bash
 do
   source $config_file
 done
