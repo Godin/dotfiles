@@ -31,6 +31,9 @@
 
   ls-ignored = ls-files --exclude-standard --ignored --others
 
+  # stage
+  sf = stage -u .
+
   # diff
   dc = diff --cached
   wd = diff --word-diff=color
