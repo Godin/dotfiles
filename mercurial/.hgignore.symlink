@@ -1,0 +1,17 @@
+# Use glob syntax.
+syntax: glob
+
+### Each directory and file, which starts with dot
+.*
+
+### IntelliJ Idea
+*.iml
+*.ipr
+*.iws
+
+### Maven
+target/
+
+### Windows
+Thumbs.db
+Desktop.ini

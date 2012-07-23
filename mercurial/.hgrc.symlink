@@ -1,0 +1,4 @@
+# Set environment variable $EMAIL to specify user
+[ui]
+editor=vim
+ignore=~/.hgignore
