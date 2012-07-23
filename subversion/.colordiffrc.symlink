@@ -21,6 +21,6 @@ color_patches=no
 #
 plain=off
 newtext=darkgreen
-oldtext=red
+oldtext=darkred
 diffstuff=magenta
 cvsstuff=off
