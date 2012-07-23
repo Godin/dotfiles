@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# Dirty hack, which will enable colorization for Maven
+source $DOTFILES/maven/maven.bashrc
+shopt -s expand_aliases
+
+LOCATION=$(pwd)
+REMOTE=${1:-origin}
+BRANCH=$(git symbolic-ref -q HEAD)
+BRANCH=${BRANCH##refs/heads/}
+
+GIT_DIR="$(git rev-parse --git-dir 2>/dev/null)"
+REPO_DIR=$(readlink -m $GIT_DIR/..)
+REPO_NAME=${REPO_DIR##*/}
+BUILD_DIR=/tmp/git-private-build/${REPO_NAME}
+
+rollback_wip() {
+  git log -n 1 | grep -q -c "WIP" && git reset HEAD~1
+}
+
+# Get command for build from Git config
+# TODO check that it was configured
+#git config private-build.command "mvn install"
+#git config --remove-section private-build
+COMMAND=$(git config --get private-build.command)
+
+# Commit "work in progress"
+git fetch ${REMOTE}
+git add -A $REPO_DIR && git commit -m "WIP"
+REBASE="$REMOTE/$BRANCH"
+git branch -r | grep -q -c ${REBASE} || REBASE="$REMOTE/master"
+echo "rebase ${REBASE}"
+git rebase ${REBASE}
+if [ "$?" -ne 0 ]; then
+  git rebase --abort
+  rollback_wip
+  echo "Unable to rebase!"
+  exit 1
+fi
+rollback_wip
+
+# Private clone
+rm -Rf ${BUILD_DIR}
+git clone --local --shared --branch "${BRANCH}" ${REPO_DIR} ${BUILD_DIR}
+
+# Private build
+cd ${BUILD_DIR}
+eval ${COMMAND}
+if [ $? -ne 0 ]; then
+  echo "Unable to build!"
+  exit 1
+fi
+
+# Update working directory
+cd ${LOCATION} && git fetch ${REMOTE}
+echo "Yet another successful build!"

@@ -23,6 +23,9 @@
   # Detect renames and copies
   renames = copies
 
+[private-build]
+  command = mvn install
+
 [alias]
   st = status
   ci = commit -v
