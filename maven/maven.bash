@@ -38,4 +38,11 @@ color_mvn() {
   return ${PIPESTATUS[0]}
 }
 
+# Sometimes after interruption of Maven colorization by Ctrl-C, terminal might be in a broken state.
+# I wasn't able to really understand why. So here is a workaround to avoid this.
+bash_prompt_command() {
+  reset -I
+}
+PROMPT_COMMAND=bash_prompt_command
+
 alias mvn=color_mvn
