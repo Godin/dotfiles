@@ -23,6 +23,12 @@ BACKGROUND_WHITE=`tput setab 7`
 RESET_FORMATTING=`tput sgr0`
 
 color_mvn() {
+  if [[ ! -t 1 ]]; then
+    # not terminal, so can not use colors
+    command mvn "$@"
+    return $?
+  fi
+
   command mvn "${@}" 2>&1 | gawk '{ print strftime("%H:%M:%S"), $0; fflush(); }' | sed \
     -e "s/\(\[INFO\]\ \-\-\-\ .*\)/${BOLD}${TEXT_BLUE}\1${RESET_FORMATTING}/g" \
     -e "s/\(\[INFO\]\ \[.*\)/${RESET_FORMATTING}${BOLD}\1${RESET_FORMATTING}/g" \
