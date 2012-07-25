@@ -29,16 +29,7 @@ color_mvn() {
     return $?
   fi
 
-  command mvn "${@}" 2>&1 | gawk '{ print strftime("%H:%M:%S"), $0; fflush(); }' | sed \
-    -e "s/\(\[INFO\]\ \-\-\-\ .*\)/${BOLD}${TEXT_BLUE}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[INFO\]\ \[.*\)/${RESET_FORMATTING}${BOLD}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[WARNING\].*\)/${BOLD}${TEXT_YELLOW}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[ERROR\].*\)/${BOLD}${TEXT_RED}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[INFO\]\ BUILD FAILURE\)/${BOLD}${TEXT_RED}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[INFO\]\ BUILD SUCCESS\)/${BOLD}${TEXT_GREEN}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[INFO\] .* FAILURE .*\)/${BOLD}${TEXT_RED}\1${RESET_FORMATTING}/g" \
-    -e "s/\(\[INFO\] .*\)\(SUCCESS .*\)/\1${BOLD}${TEXT_GREEN}\2${RESET_FORMATTING}/g" \
-    -e "s/Tests run: \([^,]*\), Failures: \([^,]*\), Errors: \([^,]*\), Skipped: \([^,]*\)/${BOLD}${TEXT_GREEN}Tests run: \1${RESET_FORMATTING}, Failures: ${BOLD}${TEXT_RED}\2${RESET_FORMATTING}, Errors: ${BOLD}${TEXT_RED}\3${RESET_FORMATTING}, Skipped: ${BOLD}${TEXT_YELLOW}\4${RESET_FORMATTING}/g"
+  command mvn "${@}" 2>&1 | gawk -f $DOTFILES/maven/maven.awk
 
   # See comp.unix.shell FAQ "How do I get the exit code of cmd1 in cmd1|cmd2": http://cfajohnson.com/shell/cus-faq-2.html
   return ${PIPESTATUS[0]}
