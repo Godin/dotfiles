@@ -46,6 +46,7 @@ color_mvn() {
 
 # Sometimes after interruption of Maven colorization by Ctrl-C, terminal might be in a broken state.
 # I wasn't able to really understand why. So here is a workaround to avoid this.
+# Should be noted that Midnight Commander overwrites PROMPT_COMMAND, but patch available - https://www.midnight-commander.org/ticket/2027
 bash_prompt_command() {
   reset -I
 }
