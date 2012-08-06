@@ -26,6 +26,7 @@ for config_file in $DOTFILES/**/*.bashrc
 do
   source $config_file
 done
+unset config_file
 
 if [[ -a ~/.localrc ]]
 then
