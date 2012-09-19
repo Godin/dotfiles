@@ -1,3 +1,6 @@
+# Case insensitive completion for filenames
+set completion-ignore-case on
+
 # Do not autocomplete hidden files unless the pattern explicitly begins with a dot
 set match-hidden-files off
 
