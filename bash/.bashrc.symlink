@@ -20,7 +20,7 @@ fi
 # Dotfiles
 # TODO get rid of hard-coded path
 export DOTFILES=$HOME/projects/dotfiles
-PATH="$DOTFILES/bin:$PATH"
+PATH="$DOTFILES/bin:$HOME/bin:$PATH"
 
 for config_file in $DOTFILES/**/*.bashrc
 do
