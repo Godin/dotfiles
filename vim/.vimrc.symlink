@@ -1,3 +1,5 @@
+syntax on
+
 " Git rebase helper for:
 "   git rebase --interactive
 "
