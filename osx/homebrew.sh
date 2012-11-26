@@ -7,4 +7,6 @@ then
     exit
 fi
 
+brew install coreutils
+
 brew install bash
