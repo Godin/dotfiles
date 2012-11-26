@@ -15,7 +15,7 @@ REPO_NAME=${REPO_DIR##*/}
 BUILD_DIR=/tmp/git-private-build/${REPO_NAME}
 
 rollback_wip() {
-  git log -n 1 | grep -q -c "WIP" && git reset HEAD~1
+  git log -1 | grep -q -c "WIP" && git reset HEAD~1
 }
 
 # Get command for build from Git config
