@@ -18,6 +18,11 @@ rollback_wip() {
   git log -1 | grep -q -c "WIP" && git reset HEAD~1
 }
 
+function alert_user {
+  echo "${1}"
+  which -s growlnotify && growlnotify `basename $0` -m "${1}"
+}
+
 # Get command for build from Git config
 # TODO check that it was configured
 #git config private-build.command "mvn install"
@@ -34,7 +39,7 @@ git rebase ${REBASE}
 if [ "$?" -ne 0 ]; then
   git rebase --abort
   rollback_wip
-  echo "Unable to rebase!"
+  alert_user "Unable to rebase!"
   exit 1
 fi
 rollback_wip
@@ -47,10 +52,10 @@ git clone --local --shared --branch "${BRANCH}" ${REPO_DIR} ${BUILD_DIR}
 cd ${BUILD_DIR}
 eval ${COMMAND}
 if [ $? -ne 0 ]; then
-  echo "Unable to build!"
+  alert_user "Unable to build!"
   exit 1
 fi
 
 # Update working directory
 cd ${LOCATION} && git fetch ${REMOTE}
-echo "Yet another successful build!"
+alert_user "Yet another successful build!"
