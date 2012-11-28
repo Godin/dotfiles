@@ -15,5 +15,5 @@ function __dotfiles_workdir() {
 }
 
 GIT_PS1_SHOWUPSTREAM="verbose"
-GIT_PS1_SHOWDIRTYSTATE=true
+#GIT_PS1_SHOWDIRTYSTATE=true
 PS1='\t \[\e[1;34m\]$(__dotfiles_workdir) \[\e[0\]m$(__git_ps1 "[%s] ")\[\e[1;34m\]\$ \[\e[0m\]'
