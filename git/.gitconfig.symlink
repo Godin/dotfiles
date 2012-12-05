@@ -40,6 +40,8 @@
 
   ls-ignored = ls-files --exclude-standard --ignored --others
 
+  amend = !git commit --amend --reuse-message=HEAD --date=\"$(date -R)\"
+
   # stage
   sf = stage -u .
 
