@@ -20,7 +20,7 @@ rollback_wip() {
 
 function alert_user {
   echo "${1}"
-  which -s growlnotify && growlnotify `basename $0` -m "${1}"
+  command -v growlnotify >/dev/null 2>&1 && growlnotify `basename $0` -m "${1}"
 }
 
 # Get command for build from Git config
