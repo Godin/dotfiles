@@ -18,8 +18,15 @@ rollback_wip() {
   git log -1 | grep -q -c "WIP" && git reset HEAD~1
 }
 
-function alert_user {
+function alert_user_ok {
   echo "${1}"
+  command -v notify-send >/dev/null 2>&1 && notify-send -t 3000 -i emblem-default "${REPO_NAME}" "${1}"
+  command -v growlnotify >/dev/null 2>&1 && growlnotify `basename $0` -m "${1}"
+}
+
+function alert_user_fail {
+  echo "${1}"
+  command -v notify-send >/dev/null 2>&1 && notify-send -t 3000 -i emblem-important "${REPO_NAME}" "${1}"
   command -v growlnotify >/dev/null 2>&1 && growlnotify `basename $0` -m "${1}"
 }
 
@@ -39,7 +46,7 @@ git rebase ${REBASE}
 if [ "$?" -ne 0 ]; then
   git rebase --abort
   rollback_wip
-  alert_user "Unable to rebase!"
+  alert_user_fail "Unable to rebase!"
   exit 1
 fi
 rollback_wip
@@ -52,10 +59,10 @@ git clone --local --shared --branch "${BRANCH}" ${REPO_DIR} ${BUILD_DIR}
 cd ${BUILD_DIR}
 eval ${COMMAND}
 if [ $? -ne 0 ]; then
-  alert_user "Unable to build!"
+  alert_user_fail "Unable to build!"
   exit 1
 fi
 
 # Update working directory
 cd ${LOCATION} && git fetch ${REMOTE}
-alert_user "Yet another successful build!"
+alert_user_ok "Yet another successful build!"
