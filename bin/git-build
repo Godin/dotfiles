@@ -21,13 +21,13 @@ rollback_wip() {
 function alert_user_ok {
   echo "${1}"
   command -v notify-send >/dev/null 2>&1 && notify-send -t 3000 -i emblem-default "${REPO_NAME}" "${1}"
-  command -v growlnotify >/dev/null 2>&1 && growlnotify `basename $0` -m "${1}"
+  command -v growlnotify >/dev/null 2>&1 && growlnotify --image ${DOTFILES}/notify/success.png "${REPO_NAME}" -m "${1}"
 }
 
 function alert_user_fail {
   echo "${1}"
   command -v notify-send >/dev/null 2>&1 && notify-send -t 3000 -i emblem-important "${REPO_NAME}" "${1}"
-  command -v growlnotify >/dev/null 2>&1 && growlnotify `basename $0` -m "${1}"
+  command -v growlnotify >/dev/null 2>&1 && growlnotify --image ${DOTFILES}/notify/fail.png "${REPO_NAME}" -m "${1}"
 }
 
 # Get command for build from Git config
