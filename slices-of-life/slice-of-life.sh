@@ -27,10 +27,10 @@ NOW=$(date "+%Y-%m-%dT%H-%M-%SZ%z")
 
 if [ "$DIST_OS" = "darwin" ]
 then
-    SCREEN=$DIR"/"$NOW"-screenshot.png"
-    CAMERA=$DIR"/"$NOW"-camera.png"
+    SCREEN=$DIR"/"$NOW"-screenshot.jpeg"
+    CAMERA=$DIR"/"$NOW"-camera.jpeg"
 
-    /usr/sbin/screencapture -m -x $SCREEN
+    /usr/sbin/screencapture -t jpeg -m -x $SCREEN
     /usr/local/bin/imagesnap $CAMERA
 else
     SCREEN=$DIR"/"$NOW"-screenshot.jpeg"
