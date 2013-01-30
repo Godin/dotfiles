@@ -31,10 +31,13 @@ function alert_user_fail {
 }
 
 # Get command for build from Git config
-# TODO check that it was configured
 #git config private-build.command "mvn install"
 #git config --remove-section private-build
 COMMAND=$(git config --get private-build.command)
+if [ -z ${COMMAND:-} ]; then
+  alert_user_fail "Build command not configured!"
+  exit 1
+fi
 
 # Commit "work in progress"
 git fetch ${REMOTE}
