@@ -9,8 +9,7 @@ REMOTE=${1:-origin}
 BRANCH=$(git symbolic-ref -q HEAD)
 BRANCH=${BRANCH##refs/heads/}
 
-GIT_DIR="$(git rev-parse --git-dir 2>/dev/null)"
-REPO_DIR=$(readlink -m $GIT_DIR/..)
+REPO_DIR="$(git rev-parse --show-toplevel 2>/dev/null)"
 REPO_NAME=${REPO_DIR##*/}
 BUILD_DIR=/tmp/git-private-build/${REPO_NAME}
 
@@ -22,12 +21,14 @@ function alert_user_ok {
   echo "${1}"
   command -v notify-send >/dev/null 2>&1 && notify-send -t 3000 --icon=${DOTFILES}/notify/success.png "${REPO_NAME}" "${1}"
   command -v growlnotify >/dev/null 2>&1 && growlnotify --image ${DOTFILES}/notify/success.png "${REPO_NAME}" -m "${1}"
+  command -v growlnotify.exe >/dev/null 2>&1 && growlnotify.exe //i:"${DOTFILES}\notify\success.png" //t:"Git build [${REPO_NAME}]" "${1}"
 }
 
 function alert_user_fail {
   echo "${1}"
   command -v notify-send >/dev/null 2>&1 && notify-send -t 3000 --icon=${DOTFILES}/notify/fail.png "${REPO_NAME}" "${1}"
   command -v growlnotify >/dev/null 2>&1 && growlnotify --image ${DOTFILES}/notify/fail.png "${REPO_NAME}" -m "${1}"
+  command -v growlnotify.exe >/dev/null 2>&1 && growlnotify.exe //i:"${DOTFILES}\notify\fail.png" //t:"Git build [${REPO_NAME}]" "${1}"
 }
 
 # Get command for build from Git config
