@@ -9,8 +9,7 @@ REMOTE=${1:-origin}
 BRANCH=$(git symbolic-ref -q HEAD)
 BRANCH=${BRANCH##refs/heads/}
 
-GIT_DIR="$(git rev-parse --git-dir 2>/dev/null)"
-REPO_DIR=$(readlink -m $GIT_DIR/..)
+REPO_DIR="$(git rev-parse --show-toplevel 2>/dev/null)"
 REPO_NAME=${REPO_DIR##*/}
 BUILD_DIR=/tmp/git-private-build/${REPO_NAME}
 
