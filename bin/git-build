@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Dirty hack, which will enable colorization for Maven
 source $DOTFILES/maven/maven.bashrc
