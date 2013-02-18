@@ -70,3 +70,4 @@ fi
 # Update working directory
 cd ${LOCATION} && git fetch ${REMOTE}
 alert_user_ok "Yet another successful build!"
+exit 0
