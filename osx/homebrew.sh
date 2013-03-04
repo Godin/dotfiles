@@ -35,6 +35,7 @@ install mercurial
 install subversion
 
 install atool
+install unrar
 install wget
 
 install v8
