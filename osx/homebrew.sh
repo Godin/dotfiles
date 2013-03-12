@@ -14,7 +14,7 @@ brew cleanup
 function install {
   brew ls $1 >/dev/null 2>&1
   if [ "$?" -ne "0" ]; then
-    brew install $1
+    brew install "$@"
   else
     echo "$1 already installed"
   fi
@@ -40,6 +40,8 @@ install unrar
 install wget
 
 install v8
+
+install llvm --with-clang
 
 # For slices-of-life
 install imagesnap
