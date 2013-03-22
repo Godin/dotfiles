@@ -2,7 +2,7 @@
 // @name           Sonar
 // @description    Enhancements for Sonar.
 // @version        0.1
-// @downloadURL    https://raw.github.com/Godin/dotfiles/chrome/sonar.user.js
+// @downloadURL    https://raw.github.com/Godin/dotfiles/master/chrome/sonar.user.js
 // @match          http://dory.internal.sonarsource.com/drilldown/violations/*
 // @run-at         document-end
 // ==/UserScript==
