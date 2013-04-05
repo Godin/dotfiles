@@ -7,6 +7,7 @@ if [ "$?" -ne "0" ]; then
     exit
 fi
 
+brew doctor
 brew update
 brew upgrade
 brew cleanup
