@@ -44,5 +44,7 @@ install v8
 
 install llvm --with-clang
 
+install gnuplot
+
 # For slices-of-life
 install imagesnap
