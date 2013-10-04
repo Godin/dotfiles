@@ -17,3 +17,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Prevent creation of .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean YES
