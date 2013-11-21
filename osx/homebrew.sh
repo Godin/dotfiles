@@ -29,6 +29,7 @@ install bash-completion
 install midnight-commander
 
 install colordiff
+install dwdiff
 install gawk
 install maven
 
