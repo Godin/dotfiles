@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 command -v brew >/dev/null 2>&1
 if [ "$?" -ne "0" ]; then
