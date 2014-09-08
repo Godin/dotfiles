@@ -1,3 +1,3 @@
 #/bin/sh
 
-clang -cc1 -fcolor-diagnostics -analyze -analyzer-checker=debug.DumpCFG $*
+clang -fsyntax-only -Xclang -analyze -Xclang -analyzer-checker=debug.DumpCFG $*
