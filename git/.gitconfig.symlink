@@ -5,6 +5,9 @@
   # This makes vim jump to the first line when you enter edit mode for the commit
   editor = vim -c ':normal gg'
 
+[status]
+  showUntrackedFiles = all
+
 [commit]
   template = ~/.git-commit-template
 
