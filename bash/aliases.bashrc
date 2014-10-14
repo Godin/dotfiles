@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if $(xsel &>/dev/null)
+if [[ -f /usr/bin/xclip ]]
 then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
+    alias pbcopy='xclip -selection clipboard -in'
+    alias pbpaste='xclip -selection clipboard -out'
 fi
 
 alias cppwd='echo -n $PWD | pbcopy'
