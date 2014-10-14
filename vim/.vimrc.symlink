@@ -29,7 +29,7 @@ endf
 fun! RebaseAction(name)
   exec 's/^\w\+/'.a:name.'/'
 endf
-fun! g:initGitRebase()
+fun! g:InitGitRebase()
   nmap <silent><buffer> L :cal RebaseLog()<CR>
   nmap <silent><buffer> p :cal RebaseAction('pick')<CR>
   nmap <silent><buffer> r :cal RebaseAction('reword')<CR>
@@ -40,4 +40,4 @@ fun! g:initGitRebase()
   nmap <silent><buffer> k :m-2<CR>
   nmap <silent><buffer> j :m+<CR>
 endf
-autocmd filetype gitrebase :cal g:initGitRebase()
+autocmd filetype gitrebase :cal g:InitGitRebase()
