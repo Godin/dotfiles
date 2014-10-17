@@ -1,0 +1,82 @@
+#
+# Key bindings
+#
+# See: http://zshwiki.org/home/zle/bindkeys#reading_terminfo
+
+# Make sure that the terminal is in application mode when zle is active, since
+# only then values from $terminfo are valid
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx
+  }
+  function zle-line-finish() {
+    echoti rmkx
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+# Use emacs key bindings
+bindkey -e
+
+# [Home]
+[[ -n "${terminfo[khome]}" ]] && bindkey "${terminfo[khome]}" beginning-of-line
+# [End]
+[[ -n "${terminfo[kend]}" ]] && bindkey "${terminfo[kend]}" end-of-line
+# [Delete]
+[[ -n "${terminfo[kdch1]}" ]] && bindkey "${terminfo[kdch1]}" delete-char
+# [PageUp]
+[[ -n "${terminfo[kpp]}" ]] && bindkey "${terminfo[kpp]}" up-line-or-history
+# [PageDown]
+[[ -n "${terminfo[knp]}" ]] && bindkey "${terminfo[knp]}" down-line-or-history
+# [Ctrl-RightArrow]
+bindkey '^[[1;5C' forward-word
+# [Ctrl-LeftArrow]
+bindkey '^[[1;5D' backward-word
+# [Ctrl-r]
+bindkey '^r' history-incremental-search-backward
+
+# Do not exit on end-of-file (Ctrl-D). Require the use of "exit" or "logout" instead
+setopt IGNORE_EOF
+
+#
+# History
+#
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt inc_append_history
+
+#
+# Prompt
+#
+
+autoload -U colors && colors
+PROMPT="%{$fg_bold[blue]%}%~ $%{$reset_color%} "
+
+#
+# Completion
+#
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*:*:*:*:*' menu select
+
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+#
+# Local configuration
+#
+
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+cdpath=( ~/projects )
