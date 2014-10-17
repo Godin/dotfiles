@@ -56,8 +56,27 @@ setopt inc_append_history
 # Prompt
 #
 
+# TODO: duplicated from bash config
+function prompt_info {
+  local g="$(git rev-parse --git-dir 2>/dev/null)"
+  if [ -n "$g" ]; then
+    # current working directory in repository
+    local subdir=$(git rev-parse --show-prefix 2>/dev/null)
+    subdir="${subdir%/}"
+    local workdir="${PWD%/$subdir}"
+    printf "%s" "${workdir/*\/}${subdir:+/$subdir}%{$reset_color%}"
+  else
+    # current working directory, with $HOME abbreviated with a tilde
+    printf "%s" $(echo $PWD | sed -e "s#^$HOME#~#g")
+  fi
+}
+
 autoload -U colors && colors
-PROMPT="%{$fg_bold[blue]%}%~ $%{$reset_color%} "
+setopt prompt_subst
+GIT_PS1_SHOWUPSTREAM="verbose"
+# TODO: not portable
+source /usr/share/git/git-prompt.sh
+PROMPT='%{$fg_bold[blue]%}$(prompt_info) $(__git_ps1 "[%s] ")%{$fg_bold[blue]%}$%{$reset_color%} '
 
 #
 # Completion
