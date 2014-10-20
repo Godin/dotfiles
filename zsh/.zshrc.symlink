@@ -90,6 +90,20 @@ zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 #
+# Dotfiles
+#
+
+# TODO get rid of hard-coded path
+export DOTFILES=$HOME/projects/dotfiles
+PATH="$DOTFILES/bin:$HOME/bin:$PATH"
+
+for config_file in $DOTFILES/**/*.zshrc
+do
+  source $config_file
+done
+unset config_file
+
+#
 # Local configuration
 #
 
