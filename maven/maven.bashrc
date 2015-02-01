@@ -11,7 +11,8 @@ color_mvn() {
   (
     command mvn "${@}" 2>&1 | gawk -f $DOTFILES/maven/maven.awk ;
     # See comp.unix.shell FAQ "How do I get the exit code of cmd1 in cmd1|cmd2": http://cfajohnson.com/shell/cus-faq-2.html
-    exit ${PIPESTATUS[0]}
+    # Handle both Bash and Zsh:
+    exit ${PIPESTATUS[0]} ${pipestatus[1]}
   )
 
   return $?
