@@ -58,7 +58,7 @@
   ammend = !git amend
 
   # stage
-  sf = stage -u .
+  sf = stage -u
 
   # diff
   dc = diff --cached
