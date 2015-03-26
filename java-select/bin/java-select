@@ -1,0 +1,56 @@
+#!/bin/sh
+
+BASE_DIR="$HOME/.java-select"
+
+die() {
+  echo >&2 "$@"
+  exit 1
+}
+
+# On Mac "echo -n" doesn't work in sh without COMMAND_MODE=legacy (man 5 compat).
+# This workaround allows to use echo from GNU coreutils.
+echo() {
+  `which echo` "$@"
+}
+
+change() {
+  [ "$#" -eq 1 ] || die "1 argument required, $# provided"
+  target="${1}"
+
+  if [[ -d "${BASE_DIR}/versions/${target}" ]]; then
+    local tmpf="${BASE_DIR}/current.new"
+    ln -s "${BASE_DIR}/versions/${target}" "${tmpf}" || die "Unable to create temporary symlink"
+    if ! mv -T "${tmpf}" "${BASE_DIR}/current"; then
+      die "Unable to replace symlink with ${target}"
+    fi
+    java -version
+  else
+    die "Target '${target}' doesn't appear to be valid!"
+  fi
+}
+
+list() {
+  local current=$(readlink "${BASE_DIR}/current")
+  current="${current##*/}"
+
+  for candidate in $(ls  "${BASE_DIR}/versions") ; do
+    if [[ -d "${BASE_DIR}/versions/${candidate}" ]]; then
+      if [ $1 -eq 1 ]; then
+        if [[ "${current}" = "${candidate}" ]]; then
+          echo -e -n " \e[1;33m*\e[0m "
+        else
+          echo -n "   "
+        fi
+      fi
+      echo "${candidate}"
+    fi
+  done
+}
+
+if [ "$1" == "--completion" ]; then
+  list 0
+elif [ "$#" -eq 1 ]; then
+  change $1
+else
+  list 1
+fi
