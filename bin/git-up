@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euo pipefail
+
+old_head=`git rev-parse HEAD`
+git pull --rebase
+new_head=`git rev-parse HEAD`
+if [ "$old_head" != "$new_head" ]
+then
+    echo "Diff:"
+    git --no-pager diff --color --stat ${old_head}.. | sed 's/^/ /'
+
+    echo "Log:"
+    git log --color --pretty=oneline --abbrev-commit ${old_head}.. | sed 's/^/  /'
+fi

@@ -52,6 +52,8 @@
   co = checkout
   br = branch
 
+  up = !git-up
+
   ls-ignored = ls-files --exclude-standard --ignored --others
 
   amend = !git commit --amend --reuse-message=HEAD --date=\"$(date -R)\"
