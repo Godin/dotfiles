@@ -53,6 +53,7 @@
   br = branch
 
   up = !git-up
+  local-branches = !git-local-branches
 
   ls-ignored = ls-files --exclude-standard --ignored --others
 
