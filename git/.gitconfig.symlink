@@ -52,6 +52,8 @@
   co = checkout
   br = branch
 
+  rbi = "!g() { git rebase -i ${1:-master} ; } ; g"
+
   up = !git-up
   local-branches = !git-local-branches
 
