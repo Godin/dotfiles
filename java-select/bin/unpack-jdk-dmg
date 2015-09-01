@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+FILE=$1
+
+tmp=`mktemp -d -p .`
+
+hdiutil attach $FILE -mountpoint ${tmp}/dmg
+pushd ${tmp}
+pkgutil --expand "`find dmg/*.pkg`" pkg
+hdiutil detach dmg
+cat `find pkg/jdk*.pkg/Payload`| gunzip -dc | cpio -i
+popd
+
+mv ${tmp}/Contents/Home ${FILE%.dmg}
+rm -r ${tmp}
