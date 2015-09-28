@@ -5,6 +5,10 @@
   # This makes vim jump to the first line when you enter edit mode for the commit
   editor = vim -c ':normal gg'
 
+[pager]
+  diff = diff-highlight | less -r
+  show = diff-highlight | less -r
+
 [status]
   showUntrackedFiles = all
 

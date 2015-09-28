@@ -4,6 +4,8 @@ if [[ -f /usr/local/bin/brew ]]
 then
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
     export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+
+    export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight/:$PATH"
 fi
 
 # Remove all .DS_Store files from directory recursively
