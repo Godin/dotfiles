@@ -2,3 +2,10 @@
 [ui]
 editor=vim
 ignore=~/.hgignore
+
+[extensions]
+color =
+pager =
+
+[pager]
+pager = LESS=FRSXQ less
