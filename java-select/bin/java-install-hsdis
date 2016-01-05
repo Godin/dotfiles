@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # See http://psy-lob-saw.blogspot.fr/2013/01/java-print-assembly.html
-cp -v ~/.java-select/hsdis-amd64.so $JAVA_HOME/jre/lib/amd64
+cp -v ~/.java-select/hsdis-amd64.* $JAVA_HOME/jre/lib/amd64
 java -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly
