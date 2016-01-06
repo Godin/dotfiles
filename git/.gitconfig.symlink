@@ -27,6 +27,11 @@
   # http://git-scm.com/book/en/v2/Git-Tools-Rerere
   enabled = true
 
+[stash]
+  # 'git stash show' = 'git stash show -p'
+  showPatch = true
+  showStat = false
+
 [branch]
   autosetuprebase = always
 
