@@ -26,6 +26,8 @@ install coreutils
 install bash
 install bash-completion
 
+install zsh
+
 install midnight-commander
 
 install colordiff
