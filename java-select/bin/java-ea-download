@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -euo pipefail
+
+set -x
+URL=$1
+FILE="${URL##*/}"
+INSTALL_FILE="$HOME/.java-select/downloads/$FILE"
+NAME="${FILE%%.*}"
+INSTALL_DIR="$HOME/.java-select/versions/$NAME"
+if [ ! -f $INSTALL_FILE ]
+then
+  curl -L $URL -o $INSTALL_FILE
+fi
+mkdir $INSTALL_DIR
+tar -xzf $INSTALL_FILE -C $INSTALL_DIR --strip-components 1
