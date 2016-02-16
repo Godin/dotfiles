@@ -62,6 +62,7 @@
   br = branch
 
   rbi = "!g() { git rebase -i ${1:-master} ; } ; g"
+  fp = push --force-with-lease
 
   up = !git-up
   local-branches = !git-local-branches
