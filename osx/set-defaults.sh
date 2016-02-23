@@ -20,3 +20,6 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean YES
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
