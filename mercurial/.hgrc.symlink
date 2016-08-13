@@ -6,6 +6,7 @@ ignore=~/.hgignore
 [extensions]
 color =
 pager =
+shelve =
 
 [pager]
 pager = LESS=FRSXQ less
