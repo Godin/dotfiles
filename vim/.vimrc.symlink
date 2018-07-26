@@ -1,3 +1,8 @@
+set laststatus=2
+
+set statusline=%=%l:%c\ %*
+
+
 syntax on
 
 " Git rebase helper for:
