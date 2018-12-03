@@ -11,5 +11,5 @@ then
     git --no-pager diff --color --stat ${old_head}.. | sed 's/^/ /'
 
     echo "Log:"
-    git log --color --pretty=oneline --abbrev-commit ${old_head}.. | sed 's/^/  /'
+    git lg --color ${old_head}.. | sed 's/^/  /'
 fi
