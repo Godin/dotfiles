@@ -2,6 +2,10 @@ set laststatus=2
 
 set statusline=%=%l:%c\ %*
 
+" Show line numbers
+set number
+highlight LineNr ctermfg=darkgray
+
 
 syntax on
 
