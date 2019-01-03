@@ -2,6 +2,9 @@ set laststatus=2
 
 set statusline=%=%l:%c\ %*
 
+set colorcolumn=121,181
+highlight ColorColumn ctermbg=darkgray
+
 " Show line numbers
 set number
 highlight LineNr ctermfg=darkgray
