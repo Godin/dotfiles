@@ -11,6 +11,7 @@ highlight LineNr ctermfg=darkgray
 
 
 syntax on
+filetype plugin on
 
 " Git rebase helper for:
 "   git rebase --interactive
