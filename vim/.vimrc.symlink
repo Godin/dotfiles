@@ -9,6 +9,10 @@ highlight ColorColumn ctermbg=darkgray
 set number
 highlight LineNr ctermfg=darkgray
 
+" Backspace over
+set backspace+=indent  " autoindent
+set backspace+=eol     " line breaks
+set backspace+=start   " start of insert
 
 syntax on
 filetype plugin on
