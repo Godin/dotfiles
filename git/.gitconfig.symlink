@@ -1,5 +1,8 @@
 # Set your user tokens as enivornment variables
 
+[advice]
+  statusHints = false
+
 [core]
   excludesfile = ~/.gitignore
   # This makes vim jump to the first line when you enter edit mode for the commit
