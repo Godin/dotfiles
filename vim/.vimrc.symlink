@@ -17,6 +17,8 @@ set backspace+=start   " start of insert
 syntax on
 filetype plugin on
 
+set autoindent
+
 " Git rebase helper for:
 "   git rebase --interactive
 "
