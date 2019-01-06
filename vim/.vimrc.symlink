@@ -1,6 +1,9 @@
 set laststatus=2
 
-set statusline=%=%l:%c\ %*
+set statusline=
+set statusline+=%=     " switch to the right side
+set statusline+=%l:%c  " current line and column
+set statusline+=\ %*
 
 set colorcolumn=121,181
 highlight ColorColumn ctermbg=darkgray
