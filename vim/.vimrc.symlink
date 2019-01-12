@@ -18,6 +18,10 @@ set backspace+=indent  " autoindent
 set backspace+=eol     " line breaks
 set backspace+=start   " start of insert
 
+" Show tab characters, non-breakable and trailing spaces
+set listchars=tab:→\ ,nbsp:•,trail:·
+set list
+
 syntax on
 filetype plugin on
 
