@@ -22,6 +22,9 @@ set backspace+=start   " start of insert
 set listchars=tab:→\ ,nbsp:•,trail:·
 set list
 
+" Use spaces instead of tabs
+set expandtab
+
 syntax on
 filetype plugin on
 
