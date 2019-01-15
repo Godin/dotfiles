@@ -29,6 +29,10 @@ set expandtab
 set hlsearch
 set incsearch
 
+" Prefer case insensitive search
+set ignorecase
+set smartcase
+
 syntax on
 filetype plugin on
 
