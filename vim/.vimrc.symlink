@@ -25,6 +25,10 @@ set list
 " Use spaces instead of tabs
 set expandtab
 
+" Highlight matches
+set hlsearch
+set incsearch
+
 syntax on
 filetype plugin on
 
