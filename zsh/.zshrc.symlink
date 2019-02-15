@@ -119,3 +119,14 @@ then
 fi
 
 cdpath=( ~/projects )
+
+#
+# tmux
+#
+
+if (( $+commands[tmux] )); then
+  if [[ -z "$TMUX" ]]; then
+    tmux
+    exit
+  fi
+fi
