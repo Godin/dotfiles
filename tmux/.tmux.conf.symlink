@@ -4,3 +4,5 @@ set -g renumber-windows on
 set -g base-index 1
 
 set -g mode-keys vi
+set -g set-clipboard off
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy.sh"
