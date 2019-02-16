@@ -2,3 +2,5 @@ set -g mouse on
 
 set -g renumber-windows on
 set -g base-index 1
+
+set -g mode-keys vi
