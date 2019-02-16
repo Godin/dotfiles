@@ -1,1 +1,3 @@
 set -g mouse on
+
+set -g base-index 1
