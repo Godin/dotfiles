@@ -9,6 +9,10 @@ set statusline+=\ %*
 set colorcolumn=121,181
 highlight ColorColumn ctermbg=darkgray
 
+" Enable mouse
+set mouse=a
+set ttymouse=xterm2
+
 " Show line numbers
 set number
 highlight LineNr ctermfg=darkgray
