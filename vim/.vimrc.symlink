@@ -1,7 +1,8 @@
 set laststatus=2
 
 set statusline=
-set statusline+=%y     " filetype
+set statusline+=\ %f   " relative path
+set statusline+=\ %y   " filetype
 set statusline+=%=     " switch to the right side
 set statusline+=%l:%c  " current line and column
 set statusline+=\ %*
