@@ -16,6 +16,12 @@ set ttymouse=xterm2
 " Show line numbers
 set number
 highlight LineNr ctermfg=darkgray
+" hybrid in buffer for current window, absolute otherwise
+:augroup numbertogglet
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave * set norelativenumber
+:augroup END
 
 " Backspace over
 set backspace+=indent  " autoindent
