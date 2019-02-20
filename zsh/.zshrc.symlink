@@ -130,7 +130,6 @@ cdpath=( ~/projects )
 
 if (( $+commands[tmux] )); then
   if [[ -z "$TMUX" ]]; then
-    tmux
-    exit
+    tmux attach || tmux new; exit
   fi
 fi
