@@ -1,0 +1,93 @@
+on Linux
+
+Konsole -> zsh
+TERM=xterm-256color
+
+Konsole -> zsh -> tmux
+TERM=screen
+Vim colorcolumn NOK
+
+----
+
+after
+set -g default-terminal "screen-256color"
+
+Konsole -> zsh -> tmux
+TERM=screen-256color
+Vim colorcolumn OK
+
+----
+
+after
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",*256col*:Tc"
+
+TERM=tmux-256color
+Vim colorcolumn OK
+
+----
+
+on macOS
+
+iTerm2 -> zsh
+terminal -> zsh
+TERM=xterm-256color
+Vim colorcolumn OK
+
+iTerm2 -> zsh -> tmux
+TERM=screen
+Vim colorcolumn NOK
+
+terminal -> zsh -> tmux
+TERM=screen
+Vim colorcolumn is black
+
+iTerm2 -> /usr/local/bin/tmux new -s test
+TERM=screen
+Vim colorcolumn NOK
+pbcopy.sh NOK
+
+----
+
+after
+set -g default-terminal "screen-256color"
+
+iTerm -> zsh -> tmux
+terminal -> zsh -> tmux
+TERM=screen-256color
+Vim colorcolumn OK
+pbcopy.sh OK
+
+iTerm2 -> /usr/local/bin/tmux
+TERM=screen-256color
+Vim colorcolumn OK
+pbcopy.sh NOK
+
+----
+
+after
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+
+iTerm -> zsh -> tmux
+Vim colorcolumn OK
+
+----
+
+after
+set -g default-terminal "tmux-256color"
+
+iTerm -> zsh -> tmux
+git diff WARNING: terminal is not fully functional
+Vim error and defaults to ansi
+
+----
+
+See
+https://www.bretfisher.com/shell/
+https://github.com/syl20bnr/spacemacs/wiki/Terminal
+https://github.com/tmux/tmux/issues/696
+https://github.com/tmux/tmux/wiki/FAQ
+https://github.com/tmux/tmux/issues/353#issuecomment-203038518
+https://www.reddit.com/r/vim/comments/75zvux/why_is_vim_background_different_inside_tmux/
+https://wiki.archlinux.org/index.php/tmux#256_colors
