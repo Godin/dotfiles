@@ -75,7 +75,11 @@ autoload -U colors && colors
 setopt prompt_subst
 GIT_PS1_SHOWUPSTREAM="verbose"
 # TODO: not portable
-source /usr/share/git/git-prompt.sh
+if (( $+commands[brew] )); then
+  source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+else
+  source /usr/share/git/git-prompt.sh
+fi
 PROMPT='%{$fg_bold[blue]%}$(prompt_info) $(__git_ps1 "[%s] ")%{$fg_bold[blue]%}$%{$reset_color%} '
 
 #
