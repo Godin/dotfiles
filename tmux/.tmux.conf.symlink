@@ -7,6 +7,7 @@ set -g renumber-windows on
 set -g base-index 1
 bind -n S-Left previous-window
 bind -n S-Right next-window
+bind c new-window -c "#{pane_current_path}"
 
 set -g mode-keys vi
 set -g set-clipboard off
