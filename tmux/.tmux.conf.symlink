@@ -14,4 +14,6 @@ set -g set-clipboard off
 bind -T copy-mode-vi v send-keys -X begin-selection
 bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy.sh"
 bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy.sh"
+bind -T copy-mode-vi Home send-keys -X start-of-line
+bind -T copy-mode-vi End send-keys -X end-of-line
 bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X stop-selection
