@@ -52,6 +52,16 @@ filetype plugin on
 
 set autoindent
 
+
+" Bracketed paste inside tmux
+if exists('$TMUX')
+  let &t_BE = "\033[?2004h"
+  let &t_BD = "\033[?2004l"
+  let &t_PS = "\033[200~"
+  let &t_PE = "\033[201~"
+endif
+
+
 " Git rebase helper for:
 "   git rebase --interactive
 "
