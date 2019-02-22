@@ -17,3 +17,4 @@ bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy.sh"
 bind -T copy-mode-vi Home send-keys -X start-of-line
 bind -T copy-mode-vi End send-keys -X end-of-line
 bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X stop-selection
+bind -n DoubleClick1Pane select-pane \; copy-mode \; send-keys -X select-word
