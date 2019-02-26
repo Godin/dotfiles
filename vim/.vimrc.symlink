@@ -62,6 +62,22 @@ if exists('$TMUX')
 endif
 
 
+" Decompile class files
+augroup javap
+  autocmd!
+  autocmd BufReadPost,FileReadPost *.class call Javap()
+augroup END
+fun! Javap()
+  let class = tempname() . ".class"
+  execute "silent w" . class
+  1,$delete
+  let output = system("javap -v -p " . class)
+  silent put=output
+  silent normal ggdd
+  setlocal buftype=nowrite
+endf
+
+
 " Git rebase helper for:
 "   git rebase --interactive
 "
