@@ -5,3 +5,6 @@
 
 ; Save history
 (savehist-mode 1)
+
+; Enable mouse
+(xterm-mouse-mode 1)
