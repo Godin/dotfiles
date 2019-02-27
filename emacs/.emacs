@@ -8,3 +8,15 @@
 
 ; Enable mouse
 (xterm-mouse-mode 1)
+
+; Decompile class files
+(defun javap ()
+  (erase-buffer)
+  (call-process "javap" nil t nil "-v" "-p" buffer-file-name)
+  (set-buffer-modified-p nil)
+  (setq buffer-read-only t))
+
+(add-hook 'find-file-hook
+          (lambda ()
+            (if (string= "class" (file-name-extension buffer-file-name))
+                (javap))))
