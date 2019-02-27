@@ -14,6 +14,10 @@
 (setq whitespace-style '(face tabs trailing))
 (global-whitespace-mode 1)
 
+; Show matching parentheses
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
 ; Decompile class files
 (defun javap ()
   (erase-buffer)
