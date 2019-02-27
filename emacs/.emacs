@@ -9,6 +9,11 @@
 ; Enable mouse
 (xterm-mouse-mode 1)
 
+; Show tab characters and trailing spaces
+(require 'whitespace)
+(setq whitespace-style '(face tabs trailing))
+(global-whitespace-mode 1)
+
 ; Decompile class files
 (defun javap ()
   (erase-buffer)
