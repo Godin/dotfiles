@@ -22,6 +22,11 @@
 (setq whitespace-style '(face tabs trailing))
 (global-whitespace-mode 1)
 
+;; Don't use tabs in Emacs Lisp
+(add-hook 'emacs-lisp-mode-hook
+          (lambda()
+            (setq indent-tabs-mode nil)))
+
 ;; Show matching parentheses
 (setq show-paren-delay 0)
 (show-paren-mode 1)
