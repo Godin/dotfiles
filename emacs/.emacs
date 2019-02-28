@@ -30,6 +30,8 @@
 ;; Show matching parentheses
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+;; Check for unbalanced parentheses
+(add-hook 'after-save-hook 'check-parens)
 
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
