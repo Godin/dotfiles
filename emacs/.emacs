@@ -3,6 +3,9 @@
 ; Disable creation of #autosave# files
 (setq auto-save-default nil)
 
+; Disable menu bar
+(menu-bar-mode -1)
+
 ; Save history
 (savehist-mode 1)
 
