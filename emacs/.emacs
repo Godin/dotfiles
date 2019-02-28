@@ -1,3 +1,8 @@
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(package-initialize)
+
 ;; Disable creation of backup~ files
 (setq make-backup-files nil)
 ;; Disable creation of #autosave# files
@@ -23,6 +28,9 @@
 
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
+
+;; Use Magit
+(require 'magit)
 
 ;; Decompile class files
 (defun javap ()
