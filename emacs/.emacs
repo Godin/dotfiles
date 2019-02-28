@@ -18,6 +18,9 @@
 (setq show-paren-delay 0)
 (show-paren-mode 1)
 
+; Highlight line in Dired mode
+(add-hook 'dired-mode-hook 'hl-line-mode)
+
 ; Decompile class files
 (defun javap ()
   (erase-buffer)
