@@ -35,6 +35,8 @@
 
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
+;; Show human readable sizes
+(setq dired-listing-switches "-lah")
 
 ;; Use Magit
 (require 'magit)
