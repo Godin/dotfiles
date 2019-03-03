@@ -40,6 +40,8 @@
 
 ;; Use Magit
 (require 'magit)
+;; Show word-granularity differences within all diff hunks
+(setq magit-diff-refine-hunk 'all)
 
 ;; Decompile class files
 (defun javap ()
