@@ -16,6 +16,8 @@
 
 ;; Enable mouse
 (xterm-mouse-mode 1)
+;; Enable mouse in emacsclient
+(add-hook 'after-make-frame-functions (lambda(frame) (xterm-mouse-mode 1)))
 
 ;; Show tab characters and trailing spaces
 (require 'whitespace)
