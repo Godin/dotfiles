@@ -5,8 +5,7 @@
 
 [core]
   excludesfile = ~/.gitignore
-  # This makes vim jump to the first line when you enter edit mode for the commit
-  editor = vim -c ':normal gg'
+  editor = emacsclient --tty --alternate-editor=\"\"
 
 [pager]
   diff = diff-highlight | less -r
