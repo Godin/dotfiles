@@ -14,6 +14,9 @@
 ;; Save history
 (savehist-mode 1)
 
+;; Save cursor position
+(save-place-mode 1)
+
 ;; Enable mouse
 (xterm-mouse-mode 1)
 ;; Enable mouse in emacsclient
