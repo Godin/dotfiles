@@ -3,6 +3,10 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
+(when (not (package-installed-p 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 ;; Disable creation of backup~ files
 (setq make-backup-files nil)
 ;; Disable creation of #autosave# files
@@ -44,9 +48,12 @@
 (setq dired-listing-switches "-lah")
 
 ;; Use Magit
-(require 'magit)
-;; Show word-granularity differences within all diff hunks
-(setq magit-diff-refine-hunk 'all)
+(use-package magit
+  :ensure
+  :config
+  ;; Show word-granularity differences within all diff hunks
+  (setq magit-diff-refine-hunk 'all)
+  )
 
 ;; Decompile class files
 (defun javap ()
