@@ -55,6 +55,12 @@
   (setq magit-diff-refine-hunk 'all)
   )
 
+;; Use files from default org-directory for org-agenda
+(use-package org
+  :config
+  (setq org-agenda-files (list org-directory))
+  )
+
 ;; Decompile class files
 (defun javap ()
   (erase-buffer)
