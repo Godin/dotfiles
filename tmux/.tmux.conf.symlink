@@ -1,6 +1,8 @@
 set -g default-terminal "screen-256color"
 set -ga terminal-overrides ",xterm-256color:Tc"
 
+set -g history-limit 10000
+
 set -g mouse on
 
 set -g renumber-windows on
