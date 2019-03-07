@@ -55,10 +55,13 @@
   (setq magit-diff-refine-hunk 'all)
   )
 
-;; Use files from default org-directory for org-agenda
+;; Use Org mode
 (use-package org
   :config
+  ;; org-agenda
   (setq org-agenda-files (list org-directory))
+  ;; org-capture
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
   )
 
 ;; Decompile class files
