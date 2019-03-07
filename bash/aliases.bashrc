@@ -7,6 +7,7 @@ then
 fi
 
 alias cppwd='echo -n $PWD | pbcopy'
+alias e='emacsclient --tty --alternate-editor=""'
 
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
