@@ -64,6 +64,9 @@
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   )
 
+;; Week starts on Monday
+(setq calendar-week-start-day 1)
+
 ;; Decompile class files
 (defun javap ()
   (erase-buffer)
