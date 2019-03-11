@@ -31,6 +31,11 @@
 (setq whitespace-style '(face tabs trailing))
 (global-whitespace-mode 1)
 
+;; Show line numbers
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode 1)
+(add-hook 'after-make-frame-functions (lambda (frame) (select-frame frame) (global-display-line-numbers-mode 1)))
+
 ;; Don't use tabs in Emacs Lisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda()
