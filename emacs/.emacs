@@ -33,6 +33,7 @@
 
 ;; Show line numbers
 (setq display-line-numbers-type 'relative)
+(set-face-foreground 'line-number-current-line "yellow")
 (global-display-line-numbers-mode 1)
 (add-hook 'after-make-frame-functions (lambda (frame) (select-frame frame) (global-display-line-numbers-mode 1)))
 
