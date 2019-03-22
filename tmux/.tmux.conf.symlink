@@ -20,3 +20,5 @@ bind -T copy-mode-vi Home send-keys -X start-of-line
 bind -T copy-mode-vi End send-keys -X end-of-line
 bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X stop-selection
 bind -n DoubleClick1Pane select-pane \; copy-mode \; send-keys -X select-word
+
+bind / copy-mode \; command-prompt -i -I "#{pane_search_string}" -p "(search up)" "send -X search-backward-incremental \"%%%\""
