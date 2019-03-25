@@ -37,10 +37,8 @@
 (global-display-line-numbers-mode 1)
 (add-hook 'after-make-frame-functions (lambda (frame) (select-frame frame) (global-display-line-numbers-mode 1)))
 
-;; Don't use tabs in Emacs Lisp
-(add-hook 'emacs-lisp-mode-hook
-          (lambda()
-            (setq indent-tabs-mode nil)))
+;; Don't use tabs for indentation
+(setq-default indent-tabs-mode nil)
 
 ;; Show matching parentheses
 (setq show-paren-delay 0)
