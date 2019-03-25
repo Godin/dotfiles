@@ -7,6 +7,11 @@ set -g mouse on
 
 set -g renumber-windows on
 set -g base-index 1
+# TODO
+# macOS:
+# C-Left = word move in Zsh
+# M-Left = switch tab in iTerm2
+# S-Left = selection in Emacs
 bind -n S-Left previous-window
 bind -n S-Right next-window
 bind c new-window -c "#{pane_current_path}"
