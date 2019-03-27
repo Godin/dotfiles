@@ -37,6 +37,9 @@
 (global-display-line-numbers-mode 1)
 (add-hook 'after-make-frame-functions (lambda (frame) (select-frame frame) (global-display-line-numbers-mode 1)))
 
+;; Show curent column number in mode line
+(setq column-number-mode 1)
+
 ;; Don't use tabs for indentation
 (setq-default indent-tabs-mode nil)
 
