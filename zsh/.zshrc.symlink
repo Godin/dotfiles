@@ -1,3 +1,6 @@
+# match files beginning with dot without need to specify this dot explicitly
+setopt globdots
+
 #
 # Key bindings
 #
