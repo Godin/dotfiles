@@ -1,6 +1,9 @@
 # match files beginning with dot without need to specify this dot explicitly
 setopt globdots
 
+# forbid '>' to overwrite existing files, use '>!' or '>|' for that
+setopt noclobber
+
 #
 # Key bindings
 #
