@@ -46,8 +46,9 @@
 ;; Show matching parentheses
 (setq show-paren-delay 0)
 (show-paren-mode 1)
-;; Check for unbalanced parentheses
-(add-hook 'after-save-hook 'check-parens)
+;; Check for unbalanced parentheses in Elisp
+(add-hook 'emacs-lisp-mode-hook
+          (lambda() (add-hook 'after-save-hook 'check-parens nil t)))
 
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
