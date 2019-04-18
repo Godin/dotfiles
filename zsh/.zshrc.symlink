@@ -45,6 +45,9 @@ bindkey '^r' history-incremental-search-backward
 # Do not exit on end-of-file (Ctrl-D). Require the use of "exit" or "logout" instead
 setopt IGNORE_EOF
 
+# Slash should not be considered as part of word
+WORDCHARS=${WORDCHARS:s:/:}
+
 #
 # History
 #
