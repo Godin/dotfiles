@@ -80,6 +80,8 @@
   ;; show absolute line numbers in evil-insert-state
   (add-hook 'evil-insert-state-entry-hook (lambda () (setq-local display-line-numbers 1)))
   (add-hook 'evil-insert-state-exit-hook (lambda() (setq-local display-line-numbers 'relative)))
+  ;; do not move cursor backwards when exiting Insert state
+  (setq evil-move-cursor-back nil)
   )
 
 ;; Week starts on Monday
