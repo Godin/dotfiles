@@ -77,6 +77,9 @@
   :ensure
   :config
   (evil-mode)
+  ;; show absolute line numbers in evil-insert-state
+  (add-hook 'evil-insert-state-entry-hook (lambda () (setq-local display-line-numbers 1)))
+  (add-hook 'evil-insert-state-exit-hook (lambda() (setq-local display-line-numbers 'relative)))
   )
 
 ;; Week starts on Monday
