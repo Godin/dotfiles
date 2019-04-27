@@ -77,12 +77,24 @@
   :ensure
   :config
   (evil-mode)
+  ;; inform terminal about change of cursor-type
+  (add-hook 'pre-command-hook 'send-cursor-type-to-terminal)
+  (add-hook 'post-command-hook 'send-cursor-type-to-terminal)
   ;; show absolute line numbers in evil-insert-state
   (add-hook 'evil-insert-state-entry-hook (lambda () (setq-local display-line-numbers 1)))
   (add-hook 'evil-insert-state-exit-hook (lambda() (setq-local display-line-numbers 'relative)))
   ;; do not move cursor backwards when exiting Insert state
   (setq evil-move-cursor-back nil)
   )
+
+(defun send-cursor-type-to-terminal ()
+  (unless (display-graphic-p)
+    (let ((cursor cursor-type))
+      (when (consp cursor) (setq cursor (car cursor)))
+      (cond ((eq cursor 'bar) (send-string-to-terminal "\e[6 q"))
+            ((eq cursor 'hbar) (send-string-to-terminal "\e[4 q"))
+            (t (send-string-to-terminal "\e[2 q")))
+      )))
 
 ;; Week starts on Monday
 (setq calendar-week-start-day 1)
