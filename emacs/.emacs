@@ -72,6 +72,13 @@
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   )
 
+;; Use Evil
+(use-package evil
+  :ensure
+  :config
+  (evil-mode)
+  )
+
 ;; Week starts on Monday
 (setq calendar-week-start-day 1)
 
