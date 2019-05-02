@@ -1,6 +1,9 @@
 set -g default-terminal "screen-256color"
 set -ga terminal-overrides ",xterm-256color:Tc"
 
+# Escape quickly followed by Key should not become Alt and Key, because this is annoying in Evil Emacs
+set escape-time 10
+
 set -g history-limit 10000
 
 set -g mouse on
