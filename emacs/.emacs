@@ -87,6 +87,9 @@
   (setq evil-move-cursor-back nil)
   )
 
+(use-package evil-magit
+  :ensure)
+
 (defun send-cursor-type-to-terminal ()
   (unless (display-graphic-p)
     (let ((cursor cursor-type))
