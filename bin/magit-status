@@ -1,0 +1,7 @@
+#!/bin/sh
+
+emacsclient --tty --alternate-editor "" --eval "(progn (let ((magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)) (call-interactively 'magit-status)) \"done\")"
+
+#emacsclient --tty --alternate-editor "" --eval "(progn (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1) (call-interactively 'magit-status) \"done\")"
+
+#emacsclient --tty --alternate-editor "" --eval "(progn (let ((default-directory \"$(pwd)\")) (call-interactively 'magit-status)) \"done\")"
