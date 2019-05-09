@@ -1,0 +1,37 @@
+import org.gradle.internal.logging.text.*
+
+def executedTasks = []
+
+class TaskInfo {
+    String name
+    Map<String, Path> outputs
+}
+
+gradle.addListener(new TaskExecutionAdapter() {
+    @Override
+    void afterExecute(Task task, TaskState state) {
+        executedTasks.add(new TaskInfo(
+            name: task.path,
+            outputs: task.outputs.fileProperties.collectEntries { [it.propertyName, it.outputFile.toPath()] }
+        ))
+    }
+})
+
+gradle.addListener(new BuildAdapter() {
+    @Override
+    void buildFinished(BuildResult result) {
+        def out = services.get(StyledTextOutputFactory).create("ouput")
+        executedTasks.eachWithIndex { t1, i ->
+            executedTasks.subList(i + 1, executedTasks.size).each { t2 ->
+                t1.outputs.each { outputName1, outputPath1 ->
+                    t2.outputs.each { outputName2, outputPath2 ->
+                        if (outputPath1.startsWith(outputPath2))
+                            out
+                              .style(StyledTextOutput.Style.Failure)
+                              .println("Overlapping\n  ${t1.name} ${outputName1} (${outputPath1})\n  ${t2.name} ${outputName2} (${outputPath2})")
+                    }
+                }
+            }
+        }
+    }
+})
