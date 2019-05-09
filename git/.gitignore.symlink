@@ -1,5 +1,6 @@
-### Each directory and file, which starts with dot
+### Directories and files starting with a dot
 .*
+!.gitignore
 
 ### IntelliJ Idea
 #.idea/
