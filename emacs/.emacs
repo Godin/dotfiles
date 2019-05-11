@@ -85,6 +85,12 @@
   (add-hook 'evil-insert-state-exit-hook (lambda() (setq-local display-line-numbers 'relative)))
   ;; do not move cursor backwards when exiting Insert state
   (setq evil-move-cursor-back nil)
+  ;; switch to motion state when entering magit-blame-mode and to normal when leaving
+  (add-hook 'magit-blame-mode-hook
+            (lambda()
+              (if (bound-and-true-p magit-blame-mode)
+                  (evil-motion-state)
+                (evil-normal-state))))
   )
 
 (use-package evil-magit
