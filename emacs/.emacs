@@ -61,6 +61,8 @@
   :config
   ;; Show word-granularity differences within all diff hunks
   (setq magit-diff-refine-hunk 'all)
+  ;; Do not open files in current window
+  (define-key magit-file-section-map (kbd "RET") 'magit-diff-visit-file-other-window)
   )
 
 ;; Use Org mode
