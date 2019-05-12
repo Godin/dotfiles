@@ -94,7 +94,11 @@
   )
 
 (use-package evil-magit
-  :ensure)
+  :ensure
+  :config
+  (evil-define-minor-mode-key 'motion 'magit-blame-mode "<" 'magit-blame)
+  (evil-define-minor-mode-key 'motion 'magit-blame-mode (kbd "RET") 'magit-show-commit)
+  )
 
 (defun send-cursor-type-to-terminal ()
   (unless (display-graphic-p)
