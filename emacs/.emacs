@@ -46,6 +46,8 @@
 ;; Show matching parentheses
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+;; Automatically insert closing parentheses
+(electric-pair-mode 1)
 ;; Check for unbalanced parentheses in Elisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda() (add-hook 'after-save-hook 'check-parens nil t)))
