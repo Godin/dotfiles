@@ -52,6 +52,10 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda() (add-hook 'after-save-hook 'check-parens nil t)))
 
+;; Highlight TODOs
+(add-hook 'prog-mode-hook
+          (lambda() (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|WIP\\)" 1 '(:background "red") t)))))
+
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
 ;; Show human readable sizes
