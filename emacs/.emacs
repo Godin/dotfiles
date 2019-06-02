@@ -43,6 +43,8 @@
 ;; Don't use tabs for indentation by default
 (setq-default indent-tabs-mode nil)
 
+(setq-default tab-width 4)
+
 (defun toggle-indentation-style ()
   (interactive)
   (setq indent-tabs-mode (if (eq indent-tabs-mode t) nil t))
