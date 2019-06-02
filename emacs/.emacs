@@ -51,6 +51,14 @@
   (message "Indenting using %s" (if (eq indent-tabs-mode t) "tabs" "spaces"))
   )
 
+(defun infer-indent-tabs-mode ()
+  (let ((space-count (how-many "^  " (point-min) (point-max)))
+        (tab-count (how-many "^\t" (point-min) (point-max))))
+    (if (> space-count tab-count) (setq indent-tabs-mode nil))
+    (if (> tab-count space-count) (setq indent-tabs-mode t)))
+  )
+(add-hook 'prog-mode-hook 'infer-indent-tabs-mode)
+
 ;; Show matching parentheses
 (setq show-paren-delay 0)
 (show-paren-mode 1)
