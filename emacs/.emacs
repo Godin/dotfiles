@@ -40,8 +40,14 @@
 ;; Show curent column number in mode line
 (setq column-number-mode 1)
 
-;; Don't use tabs for indentation
+;; Don't use tabs for indentation by default
 (setq-default indent-tabs-mode nil)
+
+(defun toggle-indentation-style ()
+  (interactive)
+  (setq indent-tabs-mode (if (eq indent-tabs-mode t) nil t))
+  (message "Indenting using %s" (if (eq indent-tabs-mode t) "tabs" "spaces"))
+  )
 
 ;; Show matching parentheses
 (setq show-paren-delay 0)
