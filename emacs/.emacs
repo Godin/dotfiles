@@ -7,6 +7,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; Save interactive customizations in separate file
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
+
 ;; Disable creation of backup~ files
 (setq make-backup-files nil)
 ;; Disable creation of #autosave# files
