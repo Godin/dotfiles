@@ -103,6 +103,8 @@
   :ensure
   :config
   (evil-mode)
+  (evil-set-initial-state 'elfeed-search-mode 'emacs)
+  (evil-set-initial-state 'elfeed-show-mode 'emacs)
   ;; inform terminal about change of cursor-type
   (add-hook 'pre-command-hook 'send-cursor-type-to-terminal)
   (add-hook 'post-command-hook 'send-cursor-type-to-terminal)
@@ -130,6 +132,15 @@
             ((eq cursor 'hbar) (send-string-to-terminal "\e[4 q"))
             (t (send-string-to-terminal "\e[2 q")))
       )))
+
+;; TODO
+(use-package elfeed
+  :ensure
+  :config
+  (setq elfeed-feeds '(
+                       "http://llvmweekly.org/rss.xml"
+                       ))
+  )
 
 ;; Week starts on Monday
 (setq calendar-week-start-day 1)
