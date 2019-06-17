@@ -73,8 +73,10 @@
           (lambda() (add-hook 'after-save-hook 'check-parens nil t)))
 
 ;; Highlight TODOs
-(add-hook 'prog-mode-hook
-          (lambda() (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|WIP\\)" 1 '(:background "red") t)))))
+(defun highlight-todos ()
+  (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|WIP\\)" 1 '(:background "red") t))))
+(add-hook 'prog-mode-hook 'highlight-todos)
+(add-hook 'nxml-mode-hook 'highlight-todos)
 
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
