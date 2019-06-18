@@ -42,6 +42,11 @@ bindkey '^[[1;5D' backward-word
 # [Ctrl-r]
 bindkey '^r' history-incremental-search-backward
 
+# TODO [Ctrl-Del]
+bindkey '^[[3;5~' kill-word
+# TODO [Alt-Del]
+bindkey '^[[3;3~' kill-word
+
 # Do not exit on end-of-file (Ctrl-D). Require the use of "exit" or "logout" instead
 setopt IGNORE_EOF
 
