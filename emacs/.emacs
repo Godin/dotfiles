@@ -136,6 +136,10 @@
 ;; Week starts on Monday
 (setq calendar-week-start-day 1)
 
+;; Syntax highlighting for CMake files
+(use-package cmake-mode
+  :ensure)
+
 ;; Decompile class files
 (defun javap ()
   (erase-buffer)
