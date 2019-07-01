@@ -140,6 +140,10 @@
 (use-package cmake-mode
   :ensure)
 
+;; Syntax highlighting for Gradle Groovy scripts
+(use-package groovy-mode
+  :ensure)
+
 ;; Decompile class files
 (defun javap ()
   (erase-buffer)
