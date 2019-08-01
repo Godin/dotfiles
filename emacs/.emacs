@@ -1,6 +1,8 @@
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+;; TODO https problem - https://www.reddit.com/r/emacs/comments/cdf48c/failed_to_download_gnu_archive/
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
 (when (not (package-installed-p 'use-package))
@@ -77,6 +79,7 @@
   (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|WIP\\)" 1 '(:background "red") t))))
 (add-hook 'prog-mode-hook 'highlight-todos)
 (add-hook 'nxml-mode-hook 'highlight-todos)
+(add-hook 'git-commit-mode-hook 'highlight-todos)
 
 ;; Highlight line in Dired mode
 (add-hook 'dired-mode-hook 'hl-line-mode)
