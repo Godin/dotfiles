@@ -8,8 +8,8 @@
   editor = emacsclient --tty --alternate-editor=\"\"
 
 [pager]
-  diff = diff-highlight | less -r
-  show = diff-highlight | less -r
+  diff = diff-highlight | less -R
+  show = diff-highlight | less -R
 
 [status]
   showUntrackedFiles = all
