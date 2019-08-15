@@ -4,5 +4,7 @@ install:
 	@ln -sfnv $(PWD)/git/.gitconfig.symlink $(HOME)/.gitconfig
 	@ln -sfnv $(PWD)/git/.gitignore.symlink $(HOME)/.gitignore
 	@ln -sfnv $(PWD)/git/.git-commit-template.symlink $(HOME)/.git-commit-template
+	@ln -sfnv $(PWD)/mercurial/.hgrc.symlink $(HOME)/.hgrc
+	@ln -sfnv $(PWD)/mercurial/.hgignore.symlink $(HOME)/.hgignore
 	@ln -sfnv $(PWD)/emacs/.emacs $(HOME)/.emacs
 	@ln -sfnv $(PWD)/vim/.vimrc.symlink $(HOME)/.vimrc
