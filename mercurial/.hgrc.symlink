@@ -1,6 +1,6 @@
 # Set environment variable $EMAIL to specify user
 [ui]
-editor=vim
+editor = emacsclient --tty --alternate-editor=""
 ignore=~/.hgignore
 
 [extensions]
