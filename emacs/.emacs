@@ -89,6 +89,14 @@
   :config
   ;; Show word-granularity differences within all diff hunks
   (setq magit-diff-refine-hunk 'all)
+  ;; Use same colors as in Git
+  (setq magit-diff-highlight-hunk-body nil)
+  (set-face-attribute 'magit-diff-added nil :foreground "green" :background 'unspecified)
+  (set-face-attribute 'magit-diff-removed nil :foreground "red" :background 'unspecified)
+  (set-face-attribute 'diff-added nil :foreground "green" :background 'unspecified)
+  (set-face-attribute 'diff-removed nil :foreground "red" :background 'unspecified)
+  (set-face-attribute 'diff-refine-added nil :foreground "black" :background "green")
+  (set-face-attribute 'diff-refine-removed nil :foreground "black" :background "red")
   )
 
 ;; Use Org mode
