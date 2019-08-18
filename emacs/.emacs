@@ -89,6 +89,8 @@
   :config
   ;; Show word-granularity differences within all diff hunks
   (setq magit-diff-refine-hunk 'all)
+  ;; Show local branches in status
+  (magit-add-section-hook 'magit-status-sections-hook 'magit-insert-local-branches :appent t)
   ;; Use same colors as in Git
   (setq magit-diff-highlight-hunk-body nil)
   (set-face-attribute 'magit-diff-added nil :foreground "green" :background 'unspecified)
