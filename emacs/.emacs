@@ -150,6 +150,12 @@
 (use-package cmake-mode
   :ensure)
 
+;; Don't indent members of C++ namespaces
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (c-set-offset 'innamespace 0)
+            ))
+
 ;; Syntax highlighting for Gradle Groovy scripts
 (use-package groovy-mode
   :ensure)
