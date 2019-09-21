@@ -29,3 +29,15 @@ bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X stop-selection
 bind -n DoubleClick1Pane select-pane \; copy-mode \; send-keys -X select-word
 
 bind / copy-mode \; command-prompt -i -I "#{pane_search_string}" -p "(search up)" "send -X search-backward-incremental \"%%%\""
+
+# Toggle on/off all other keybindins
+bind -T root F12 \
+     set prefix None \;\
+     set key-table off \;\
+     set status-style "fg=black,bg=colour235" \;\
+     refresh-client -S
+bind -T off F12 \
+     set -u prefix \;\
+     set -u key-table \;\
+     set -u status-style \;\
+     refresh-client -S
