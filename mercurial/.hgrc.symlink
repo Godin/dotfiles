@@ -11,3 +11,6 @@ mq =
 
 [pager]
 pager = LESS=FRSXQ less
+
+[alias]
+lg = log --pager=yes --template "{label('red', node|short)} {label('green', date|shortdate)} {desc|firstline|strip}\n"
