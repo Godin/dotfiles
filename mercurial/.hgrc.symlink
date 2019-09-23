@@ -11,3 +11,6 @@ mq =
 
 [pager]
 pager = LESS=FRSXQ less
+
+[diff]
+git = True
