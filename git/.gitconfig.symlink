@@ -73,6 +73,9 @@
 
   ca = !git commit --amend --date=\"$(date -R)\"
 
+  # change author of commit
+  credit = "!f() { git commit --amend --author \"$1\" --reuse-message=HEAD; }; f"
+
   # stage
   sf = stage -u
 
