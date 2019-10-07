@@ -1,6 +1,7 @@
 ### Directories and files starting with a dot
 .*
 !.gitignore
+!.gitattributes
 
 ### IntelliJ Idea
 #.idea/
