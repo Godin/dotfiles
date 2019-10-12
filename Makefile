@@ -1,5 +1,6 @@
 install:
 	@ln -sfnv $(PWD)/zsh/.zshrc.symlink $(HOME)/.zshrc
+	@ln -sfnv $(PWD)/zsh/dircolors $(HOME)/.dircolors
 	@ln -sfnv $(PWD)/tmux/.tmux.conf.symlink $(HOME)/.tmux.conf
 	@ln -sfnv $(PWD)/git/.gitconfig.symlink $(HOME)/.gitconfig
 	@ln -sfnv $(PWD)/git/.gitignore.symlink $(HOME)/.gitignore

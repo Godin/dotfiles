@@ -1,0 +1,10 @@
+COLOR tty
+
+TERM screen*
+
+RESET 0
+DIR 01;34
+LINK target # use color of target for symbolic links
+ORPHAN 41 # broken symbolic link
+MISSING 41 # target of broken symbolic link
+EXEC 01;32 # files with execute permission

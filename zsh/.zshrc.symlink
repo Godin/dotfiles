@@ -4,6 +4,8 @@ setopt globdots
 # forbid '>' to overwrite existing files, use '>!' or '>|' for that
 setopt noclobber
 
+eval $(dircolors --sh ~/.dircolors)
+
 #
 # Key bindings
 #
