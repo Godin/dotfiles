@@ -9,7 +9,19 @@ _mvn() {
 (( $+functions[_mvn_args] )) ||
 _mvn_args() {
   _alternative \
-    'phases:phase:_mvn_phases'
+    'phases:phase:_mvn_phases' \
+    'plugins:plugin:_mvn_plugins'
+}
+
+(( $+functions[_mvn_plugins] )) ||
+_mvn_plugins() {
+  local plugins
+  plugins=(
+    'dependency\:tree'
+    'versions\:display-plugin-updates'
+    'spotless\:apply'
+  )
+  _describe -t 'plugins' 'plugin' plugins
 }
 
 (( $+functions[_mvn_phases] )) ||
