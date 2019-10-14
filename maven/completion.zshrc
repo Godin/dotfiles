@@ -52,4 +52,4 @@ _mvn_pom_files() {
   _files -g 'pom\.xml'
 }
 
-compdef _mvn color_mvn
+compdef _mvn mvn
