@@ -1,6 +1,10 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(setq package-archive-priorities
+      '(("melpa-stable" . 1)))
+
 (package-initialize)
 
 (when (not (package-installed-p 'use-package))
@@ -155,6 +159,52 @@
           (lambda ()
             (c-set-offset 'innamespace 0)
             ))
+
+;; https://dis-dot-dat.blogspot.com/2010/04/ive-used-combination-of-mutt-emacs.html
+;; https://github.com/wanderlust/wanderlust/blob/master/samples/en/dot.wl
+;; https://github.com/chneeb/dotemacs/blob/master/wl.el
+;; https://github.com/danhper/dotfiles/blob/master/home/.wl
+;; https://github.com/jiaxingzhang/emacs/blob/master/email.el
+;; https://github.com/abelardojarab/emacs-config/blob/master/.emacs.d/setup/setup-email.el
+;; https://www.gnu.org/software/emacs/manual/html_mono/auth.html
+;; https://medium.com/@enzuru/emacs-26-wanderlust-and-modern-gmail-authentication-36e1ae61471f
+;; https://box.matto.nl/emacsgmail.html
+;;
+;; ~/.folders
+;; %[Gmail]/Trash  "Trash"
+(use-package wl
+  :ensure wanderlust
+  :config
+  (setq wl-from (format "%s <%s>" (getenv "GIT_COMMITTER_NAME") (getenv "GIT_COMMITTER_EMAIL")))
+  (setq
+   ;;elmo-imap4-default-server "imap.gmail.com"
+   ;;elmo-imap4-default-port 993
+   ;;elmo-imap4-default-stream-type 'ssl
+   ;;elmo-imap4-default-authenticate-type 'clear
+   ;;elmo-imap4-default-user (getenv "GIT_COMMITTER_EMAIL")
+   ;;elmo-imap4-use-modified-utf7 t
+   ;;password-cache nil
+   elmo-passwd-storage-type 'auth-source
+   )
+  (setq wl-message-ignored-field-list '("^.*:"))
+  (setq wl-message-visible-field-list '("^From" "^To:" "^Cc:" "^Bcc:" "^Subject:"))
+
+;;  (setq wl-summary-indent-length-limit nil)
+  (setq wl-summary-width nil)
+  ;; http://wanderlust.github.io/wl-docs/wl.html#Summary-View
+  ;; (setq wl-summary-line-format "%n%T%P%M/%D(%W) %t%[%17(%c %f%) %] %s")
+
+;;  (setq wl-default-folder "%inbox")
+;;  (setq wl-default-spec "%")
+;;  (setq wl-folder-check-async t)
+;;  (setq wl-trash-folder "%[Gmail]/Trash")
+;;  (setq wl-folder-check-async t)
+  ;; TODO wl-folders-file
+
+;;  (add-hook 'wl-folder-mode-hook 'evil-emacs-state)
+;;  (evil-set-initial-state 'wl-folder-mode 'emacs)
+;;  (add-to-list 'evil-emacs-state-modes 'wl-folder-mode)
+  )
 
 ;; Syntax highlighting for Gradle Groovy scripts
 (use-package groovy-mode
