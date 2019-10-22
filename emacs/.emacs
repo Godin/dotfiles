@@ -1,6 +1,10 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(setq package-archive-priorities
+      '(("melpa-stable" . 1)))
+
 (package-initialize)
 
 (when (not (package-installed-p 'use-package))
@@ -147,6 +151,20 @@
 
 ;; Week starts on Monday
 (setq calendar-week-start-day 1)
+
+;; Email client
+(use-package wl
+  :ensure wanderlust
+  :config
+  (setq
+   wl-folder-desktop-name "Emails"
+   wl-summary-width nil
+   wl-message-ignored-field-list '("^.*:")
+   wl-message-visible-field-list '("^From:" "^To:" "^Cc:" "^Bcc:" "^Subject:")
+   )
+  (add-hook 'wl-folder-mode-hook 'evil-emacs-state)
+  (add-to-list 'evil-emacs-state-modes 'wl-summary-mode)
+  )
 
 ;; Syntax highlighting for CMake files
 (use-package cmake-mode
