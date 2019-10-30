@@ -49,6 +49,8 @@
 
 (setq-default tab-width 4)
 
+(setq js-indent-level 2)
+
 (defun toggle-indentation-style ()
   (interactive)
   (setq indent-tabs-mode (if (eq indent-tabs-mode t) nil t))
