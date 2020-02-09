@@ -19,6 +19,7 @@ _mvn_plugins() {
   plugins=(
     'dependency\:tree'
     'versions\:display-plugin-updates'
+    'versions\:display-dependency-updates'
     'spotless\:apply'
   )
   _describe -t 'plugins' 'plugin' plugins
