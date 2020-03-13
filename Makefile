@@ -9,3 +9,4 @@ install:
 	@ln -sfnv $(PWD)/mercurial/.hgignore.symlink $(HOME)/.hgignore
 	@ln -sfnv $(PWD)/emacs/.emacs $(HOME)/.emacs
 	@ln -sfnv $(PWD)/vim/.vimrc.symlink $(HOME)/.vimrc
+	@ln -sfnv $(PWD)/vim/ideavimrc $(HOME)/.ideavimrc
