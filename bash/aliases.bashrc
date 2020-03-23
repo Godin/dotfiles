@@ -9,7 +9,9 @@ fi
 alias cppwd='echo -n $PWD | pbcopy'
 alias e='emacsclient --tty --alternate-editor=""'
 
-alias ls='ls --color=auto'
+# ls: use a long listing format, show human-readable sizes
+alias ls='ls -lh --color=auto'
+
 alias grep='grep --colour=auto'
 
 if [[ "$OSTYPE" != "darwin"* ]]; then
