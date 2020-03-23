@@ -6,6 +6,9 @@ setopt noclobber
 
 eval $(dircolors --sh ~/.dircolors)
 
+# less: show colors, prefer case insensitive search
+export LESS="-Ri"
+
 #
 # Key bindings
 #
