@@ -90,6 +90,9 @@ precmd() {
 # Completion
 #
 
+# do not beep on ambiguous completion
+unsetopt list_beep
+
 autoload -Uz compinit
 compinit
 
