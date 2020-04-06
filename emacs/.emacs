@@ -164,6 +164,16 @@
    )
   (add-hook 'wl-folder-mode-hook 'evil-emacs-state)
   (add-to-list 'evil-emacs-state-modes 'wl-summary-mode)
+  (add-hook
+   'wl-summary-mode-hook
+   '(lambda ()
+      (hl-line-mode t)
+      (local-set-key "j" 'wl-summary-next)
+      (local-set-key "k" 'wl-summary-prev)
+      (local-set-key "D"
+                     (lambda () (interactive) (wl-thread-delete t)))
+;;                     'wl-thread-delete)
+      ))
   )
 
 ;; Syntax highlighting for CMake files
