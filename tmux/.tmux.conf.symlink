@@ -15,8 +15,13 @@ set -g base-index 1
 bind -n S-Left previous-window
 bind -n S-Right next-window
 bind c new-window -c "#{pane_current_path}"
-bind S-Left swap-window -t -1
-bind S-Right swap-window -t +1
+
+bind S-Left swap-window -t -1 -d
+bind S-Right swap-window -t +1 -d
+# https://github.com/tmux/tmux/issues/2056
+if-shell "tmux -V | grep 'tmux 2.'" " \
+         bind S-Left swap-window -t -1 ;\
+         bind S-Right swap-window -t +1"
 
 set -g mode-keys vi
 set -g set-clipboard off
