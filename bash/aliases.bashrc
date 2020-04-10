@@ -14,6 +14,8 @@ alias ls='ls -lh --color=auto --group-directories-first'
 
 alias grep='grep --colour=auto'
 
+alias diff='git diff --no-index'
+
 if [[ "$OSTYPE" != "darwin"* ]]; then
   alias open=xdg-open
 fi
