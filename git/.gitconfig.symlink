@@ -69,6 +69,8 @@
   rbi = "!g() { git rebase -i ${1:-master} ; } ; g"
   fp = push --force-with-lease
 
+  publish = "!f() { git push --set-upstream ${1:-origin} $(git branch --show-current); }; f"
+
   up = !git-up
   local-branches = !git-local-branches
 
