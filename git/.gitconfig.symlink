@@ -1,4 +1,5 @@
-# Set your user tokens as enivornment variables
+[user]
+  useConfigOnly = true
 
 [advice]
   statusHints = false
