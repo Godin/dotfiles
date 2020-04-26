@@ -9,8 +9,8 @@ fi
 alias cppwd='echo -n $PWD | pbcopy'
 alias e='emacsclient --tty --alternate-editor=""'
 
-# ls: use a long listing format, show human-readable sizes
-alias ls='ls -lh --color=auto --group-directories-first'
+# ls: use a long listing format, show entries starting with a dot, show human-readable sizes
+alias ls='ls -lAh --color=auto --group-directories-first'
 
 alias grep='grep --colour=auto'
 
