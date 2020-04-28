@@ -18,6 +18,9 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Prevent creation of .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+# Automatically rearrange Spaces based on most recent use -> Disable
+defaults write com.apple.dock mru-spaces -bool false
+
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean YES
 
