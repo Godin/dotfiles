@@ -49,4 +49,7 @@ bind -T off F12 \
      set -u status-style \;\
      refresh-client -S
 
-if-shell 'test -n "$SSH_CONNECTION"' 'set -g status-right "#H"'
+if-shell 'test -n "$SSH_CONNECTION"' ' \
+     set -g status-right "#H"; \
+     set -g mode-style bg=brightred; \
+     '
