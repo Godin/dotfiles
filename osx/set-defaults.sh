@@ -24,5 +24,8 @@ defaults write com.apple.dock mru-spaces -bool false
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean YES
 
+# Keyboard -> Shortcuts -> Full Keyboard Access: In windows and dialogues, press Tab to move keyboard focus between -> All controls
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
