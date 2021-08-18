@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:ProjectCatalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    name="redirectable test 5"
+    label="Redirectable Projects test 5">
+  <setupTask
+      xsi:type="setup:WorkspaceTask"
+      id="workspace"/>
+  <setupTask
+      xsi:type="setup:TextModifyTask"
+      url="configuration:/config.ini">
+    <modification
+        pattern="osgi\.instance\.area\.default=(@user\.home/workspace)">
+      <substitution>${workspace.location|path}</substitution>
+    </modification>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.custom"
+      value="=index:/redirectable.projects.setup->file:/Users/godin/projects/dotfiles/eclipse/redirectable.projects.setup"
+      vm="true">
+    <description></description>
+  </setupTask>
+
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.test"
+      value="=https://raw.githubusercontent.com/Godin/dotfiles/oomph/eclipse/empty.setup->file:/Users/godin/projects/dotfiles/eclipse/empty.setup"
+      vm="true">
+    <description></description>
+  </setupTask>
+
+  <!--
+  <project href="https://raw.githubusercontent.com/Godin/dotfiles/oomph/eclipse/EclEmma.setup#/"/>
+  -->
+  <project href="https://raw.githubusercontent.com/Godin/dotfiles/oomph/eclipse/empty.setup#/"/>
+  <!--
+  <project href="file:/Users/godin/projects/dotfiles/eclipse/empty.setup#/"/>
+   -->
+</setup:ProjectCatalog>

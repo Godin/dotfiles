@@ -1,0 +1,7 @@
+----
+~/apps/Eclipse\ Installer.app/Contents/Eclipse/eclipse-inst.ini
+----
+
+----
+eclipse-inst -vmargs "-Doomph.redirection.custom=index:/redirectable.projects.setup->https://raw.githubusercontent.com/Godin/dotfiles/oomph/eclipse/redirectable.projects.setup"
+----
