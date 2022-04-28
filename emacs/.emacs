@@ -85,6 +85,13 @@
 ;; Show human readable sizes
 (setq dired-listing-switches "-lah")
 
+;; TODO see ~/.emacs.d/elpa/undo-tree-0.8.2/undo-tree.el
+(use-package undo-tree
+  :config
+  (setq undo-tree-auto-save-history nil)
+  (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/var/undo")))
+  )
+
 ;; Use Magit
 (use-package magit
   :ensure
