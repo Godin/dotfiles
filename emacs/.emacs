@@ -115,6 +115,8 @@
 ;; Use Evil
 (use-package evil
   :ensure
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode)
   ;; inform terminal about change of cursor-type
@@ -133,8 +135,12 @@
                 (evil-normal-state))))
   )
 
-(use-package evil-magit
-  :ensure)
+(use-package evil-collection
+  :ensure
+  :after evil
+  :config
+  (evil-collection-init '(magit))
+  )
 
 (defun send-cursor-type-to-terminal ()
   (unless (display-graphic-p)
