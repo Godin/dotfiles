@@ -2,6 +2,7 @@ if [[ -x /usr/local/bin/brew ]]; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
   export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
   export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
+  FPATH="$(brew --prefix)/share/zsh/functions:$(brew --prefix)/share/zsh/site-functions"
 fi
 
 # match files beginning with dot without need to specify this dot explicitly
