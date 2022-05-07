@@ -1,4 +1,11 @@
-if [[ -x /usr/local/bin/brew ]]; then
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  # M1
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  # Intel
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+if [[ -v HOMEBREW_PREFIX ]]; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
   export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
   export PATH="$(brew --prefix git)/share/git-core/contrib/diff-highlight:$PATH"
