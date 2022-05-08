@@ -121,6 +121,7 @@
   :config
   (evil-set-leader 'normal (kbd "SPC"))
   (evil-define-key 'normal 'global
+    (kbd "<leader>b") 'switch-to-buffer
     (kbd "<leader>gf") 'counsel-git
     (kbd "<leader>gs") 'magit-status
     )
