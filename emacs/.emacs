@@ -33,6 +33,7 @@
 ;; Show tab characters and trailing spaces
 (require 'whitespace)
 (setq whitespace-style '(face tabs trailing))
+(setq whitespace-global-modes '(not magit-mode))
 (global-whitespace-mode 1)
 
 ;; Show line numbers
