@@ -119,6 +119,10 @@
   :init
   (setq evil-want-keybinding nil)
   :config
+  (evil-set-leader 'normal (kbd "SPC"))
+  (evil-define-key 'normal 'global
+    (kbd "<leader>gs") 'magit-status
+    )
   (evil-mode)
   ;; inform terminal about change of cursor-type
   (add-hook 'pre-command-hook 'send-cursor-type-to-terminal)
