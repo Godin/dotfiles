@@ -156,6 +156,17 @@
             (t (send-string-to-terminal "\e[2 q")))
       )))
 
+;; Use ivy
+(use-package ivy
+  :ensure
+  :config
+  (ivy-mode))
+(use-package counsel
+  :ensure
+  :after ivy
+  :config
+  (counsel-mode))
+
 ;; Week starts on Monday
 (setq calendar-week-start-day 1)
 
