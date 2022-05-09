@@ -30,6 +30,14 @@
 ;; Enable mouse in emacsclient
 (add-hook 'after-make-frame-functions (lambda(frame) (xterm-mouse-mode 1)))
 
+;; Copy to macOS clipboard
+(setq interprogram-cut-function
+      (lambda (text &optional push)
+        (let* ((process-connection-type nil)
+               (proc (start-process "pbcopy" "pbcopy" "/usr/bin/pbcopy")))
+          (process-send-string proc text)
+          (process-send-eof proc))))
+
 ;; Show tab characters and trailing spaces
 (require 'whitespace)
 (setq whitespace-style '(face tabs trailing))
