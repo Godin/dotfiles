@@ -25,6 +25,7 @@
 
 [rebase]
   autostash = true
+  updateRefs = true
 
 [rerere]
   # http://git-scm.com/book/en/v2/Git-Tools-Rerere
