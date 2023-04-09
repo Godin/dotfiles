@@ -45,6 +45,7 @@ _mvn_properties() {
   local properties
   properties=(
     'skipTests'
+    'spotless.check.skip'
   )
   _describe -t 'property' 'property' properties
 }
