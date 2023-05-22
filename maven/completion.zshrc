@@ -2,6 +2,7 @@ _mvn() {
   _arguments -C \
     "(-f --file)"{-f,--file}'[force the use of an alternate POM file]:POM file:_mvn_pom_files' \
     "(-V --show-version)"{-V,--show-version}'[display version information without stopping build]' \
+    "(-N --non-recursive)"{-N,--non-recursive}'[do not recurse into sub-projects]' \
     "*"{-D-,--define}'[define a system property]:property:_mvn_properties' \
     "*: :_mvn_args"
 }
