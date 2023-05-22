@@ -3,6 +3,7 @@ _mvn() {
     "(-f --file)"{-f,--file}'[force the use of an alternate POM file]:POM file:_mvn_pom_files' \
     "(-V --show-version)"{-V,--show-version}'[display version information without stopping build]' \
     "(-N --non-recursive)"{-N,--non-recursive}'[do not recurse into sub-projects]' \
+    "(-U --update-snapshots)"{-U,--update-snapshots}'[force a check for updated releases and snapshots on remote repositories]' \
     "*"{-D-,--define}'[define a system property]:property:_mvn_properties' \
     "*: :_mvn_args"
 }
