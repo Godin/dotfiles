@@ -196,6 +196,11 @@
 (use-package groovy-mode
   :ensure)
 
+;; Syntax highlighting for ideavimrc
+(use-package vimrc-mode
+  :ensure
+  :mode "ideavimrc")
+
 ;; Decompile class files
 (defun javap ()
   (erase-buffer)
