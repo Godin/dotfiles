@@ -1,2 +1,21 @@
 set relativenumber number
 set ignorecase smartcase
+
+set incsearch
+set hlsearch
+
+set clipboard^=unnamed
+
+" https://youtrack.jetbrains.com/issue/VIM-437
+set keymodel+=startsel
+
+let mapleader = " "
+
+" edit ideavim config
+nnoremap <leader>vv :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+
+set which-key
+set notimeout
+
+set visualbell
