@@ -48,6 +48,7 @@ _mvn_properties() {
   properties=(
     'skipTests'
     'spotless.check.skip'
+    'tycho.mode=maven'
   )
   _describe -t 'property' 'property' properties
 }
