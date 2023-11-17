@@ -66,7 +66,7 @@
   st = status
   ci = commit -v
   co = checkout
-  br = branch
+  br = branch --sort=-committerdate --format='%(HEAD)%(if)%(HEAD)%(then)%(color:yellow)%(end) %(align:50)%(refname:short)%(end) %(align:15)%(committerdate:relative)%(end) %(contents:subject) %(if:equals=refs/heads)%(refname:rstrip=-2)%(then)%(color:red)%(if)%(upstream)%(then)%(upstream:track)%(else)[unset]%(end)%(end)'
 
   rbi = "!g() { git rebase -i ${1:-master} ; } ; g"
   fp = push --force-with-lease
@@ -74,7 +74,6 @@
   publish = "!f() { git push --set-upstream ${1:-origin} $(git branch --show-current); }; f"
 
   up = !git-up
-  local-branches = !git-local-branches
 
   ls-ignored = ls-files --exclude-standard --ignored --others
 
