@@ -46,6 +46,7 @@ _mvn_phases() {
 _mvn_properties() {
   local properties
   properties=(
+    'maven.plugin.validation=verbose'
     'skipTests'
     'spotless.check.skip'
     'tycho.mode=maven'
