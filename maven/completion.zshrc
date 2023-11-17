@@ -19,6 +19,7 @@ _mvn_args() {
 _mvn_plugins() {
   local plugins
   plugins=(
+    'help\:effective-pom'
     'dependency\:tree'
     'versions\:display-plugin-updates'
     'versions\:display-dependency-updates'
