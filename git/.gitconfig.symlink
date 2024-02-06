@@ -59,6 +59,9 @@
   # Better detection of words
   wordRegex = .
 
+[init]
+  defaultBranch = main
+
 [private-build]
   command = mvn install
 
