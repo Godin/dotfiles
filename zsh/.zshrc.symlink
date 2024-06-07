@@ -153,7 +153,7 @@ cdpath=( ~/projects )
 #
 
 if (( $+commands[tmux] )); then
-  if [[ -t 0 && -z "$TMUX" ]]; then
+  if [[ -t 0 && -z "$TMUX" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
     tmux attach || tmux new; exit
   fi
 fi
