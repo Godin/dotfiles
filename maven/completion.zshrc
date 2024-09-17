@@ -61,3 +61,4 @@ _mvn_pom_files() {
 }
 
 compdef _mvn mvn
+compdef _mvn mvnw
