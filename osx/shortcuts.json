@@ -1,0 +1,12 @@
+{
+  "NSServicesStatus": {
+    "com.apple.Terminal - Search man Page Index in Terminal - searchManPages": {
+      "enabled_context_menu": 0,
+      "enabled_services_menu": 0,
+      "presentation_modes": {
+        "ContextMenu": 0,
+        "ServicesMenu": 0
+      }
+    }
+  }
+}
