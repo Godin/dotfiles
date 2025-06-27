@@ -10,3 +10,4 @@ install:
 	@ln -sfnv $(PWD)/emacs/.emacs $(HOME)/.emacs
 	@ln -sfnv $(PWD)/vim/.vimrc.symlink $(HOME)/.vimrc
 	@ln -sfnv $(PWD)/vim/ideavimrc $(HOME)/.ideavimrc
+	@ln -sfnv $(PWD)/vscode/settings.jsonc $(HOME)/Library/Application\ Support/Cursor/User/settings.json
